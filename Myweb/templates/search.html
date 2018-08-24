@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Vintauge</title>
+	<meta name="description" content="Free Responsive Html5 Css3 Templates ">
+	<meta name="author" content="#">
+	
+    <!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- CSS
+	================================================== -->
+  	<link rel="stylesheet" href="/static/css/zerogrid.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	
+	<!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	
+	<link rel="stylesheet" href="/static/css/menu.css">
+	<script src="/static/js/jquery1111.min.js" type="text/javascript"></script>
+	<script src="/static/js/script.js"></script>
+	
+	<!-- Owl Carousel Assets -->
+    <link href="/static/owl-carousel/owl.carousel.css" rel="stylesheet">
+	
+	<!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/Items/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<script src="js/css3-mediaqueries.js"></script>
+	<![endif]-->
+	
+</head>
+
+<body>
+	<div class="wrap-body">
+		<div id='cssmenu' class="align-center">
+			<ul>
+			   <li><a href='/index'><span>Home</span></a></li>
+			   <li class='active'><a href='/search'><span>Search</span></a></li>
+			   <li class='last'><a href='/about'><span>About</span></a></li>
+			</ul>
+		</div>
+		<header class="">
+			<div class="logo">
+				<hr class="line-1">
+				<a href="#">Replicons</a>
+				<span>and it's length information</span>
+				<hr class="line-1">
+			</div>
+		</header>
+		<!--////////////////////////////////////Container-->
+		<section id="container">
+			<div class="wrap-container">
+				<div class="zerogrid">
+					<div class="comments-are">
+						<div id="comment">
+							<a href="search_return.html"><h3>Replicon</h3></a>
+							<span>Please input a replicon and we'll search for the corresponding length</span>
+							<form name="form1" id="comment_form" method="post" action="">
+								<!--label>
+								<span>Comment:</span>
+								<textarea name="message" id="message"></textarea>
+								</label-->
+								<label>
+								<span>Name:</span>
+								<input type="text"  name="name" id="name" required>
+								</label>
+								<!--label>
+								<span>Email:</span>
+								<input type="email"  name="email" id="email" required>
+								</label-->
+								<center><input class="sendButton" type="submit" name="Submit" value="Submit"></a></center>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if flag %}
+			<div class="wrap-container">
+				<div class="zerogrid">
+					<div class="comments-are">
+						<div id="comment">
+							<h3>Results</h3>
+							<form name="form1" id="comment_form" method="post" action="">
+								<div class="bordered">
+									{% ifequal flag "1" %}
+								 <table class="altrowstable" id="alternatecolor">
+                                                        <tr>
+                                                                    <th>Name</th><th>Type</th><th>Length</th><th>%GC</th><th>Organism</th><th>Description</th>
+                                                                    </tr>
+                                                                    {% for res in results %}
+                                                                    <tr>
+                                                                    <td><a href="{{ res.url }}">{{ res.Name }}</a></td><td>{{ res.Type }}</td> <td>{{ res.Length }}</td><td>{{ res.GC }}</td><td>{{ res.Organism }}</td><td>{{ res.Description }}</td>
+                                                                    </tr>
+                                                                    {% endfor %}
+                                                                </table>
+                                                                {% endifequal %}
+                                                                {% ifequal flag "2" %}
+                                                                <center></center>><h1>Please input a valid name</h1><center>
+                                                                {% endifequal %}
+                          
+                                    </div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</section>
+		<!--////////////////////////////////////Footer-->
+		<footer>
+			<div class="zerogrid wrap-footer">
+				<div class="row">
+					<div class="bottom-social">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+						<a href="#"><i class="fa fa-vimeo"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+						<a href="#"><i class="fa fa-youtube"></i></a>
+					</div>
+				</div>
+				<div class="copyright">
+					Copyright @ - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
